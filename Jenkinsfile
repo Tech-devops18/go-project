@@ -80,4 +80,5 @@ pipeline {
         echo 'Go build failed'
     }
 }
+}
 
