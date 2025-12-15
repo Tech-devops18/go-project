@@ -58,9 +58,7 @@ pipeline {
         stage('Copy package') {
             steps {
                 sh '''
-                    sudo mkdir -p /opt/gobuild/${BUILD_ID}
-                    sudo chown -R jenkins:jenkins /opt/gobuild/${BUILD_ID}
-                    sudo cp ${APP_NAME} /opt/gobuild/${BUILD_ID}/${APP_NAME}
+                   cp ${APP_NAME} /opt/gobuild/${BUILD_ID}/${APP_NAME}
                 '''
             }
         }
