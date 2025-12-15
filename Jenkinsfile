@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+    go 'go-project
+}
 
     environment {
         APP_NAME = 'go-project'
