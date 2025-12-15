@@ -62,7 +62,7 @@ pipeline {
 
         stage('Archive Binary') {
             steps {
-                archiveArtifacts artifacts: "gobuild/${BUILD_ID}/${APP_NAME}", fingerprint: true
+                archiveArtifacts artifacts: "gobuild/${BUILD_ID}/${APP_NAME}", fingerprint: false
             }
         }
     }
