@@ -13,8 +13,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Tech-devops18/go-project.git'
+                git branch: 'main', url: 'https://github.com/Tech-devops18/go-project.git'
             }
         }
 
