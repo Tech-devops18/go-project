@@ -58,15 +58,15 @@ pipeline {
         stage('Copy package') {
             steps {
                 sh '''
-                   mkdir -p /opt/gobuild/${BUILD_ID}
-                   cp ${APP_NAME} /opt/gobuild/${BUILD_ID}/${APP_NAME}
+                   mkdir -p gobuild/${BUILD_ID}
+                   cp ${APP_NAME} gobuild/${BUILD_ID}/${APP_NAME}
                 '''
             }
         }
 
         stage('Archive Binary') {
             steps {
-                archiveArtifacts artifacts: '${APP_NAME}', fingerprint: true
+                archiveArtifacts artifacts: 'gobuild/${BUILD_ID}/**', fingerprint: true
             }
         }
     }
