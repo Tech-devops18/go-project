@@ -58,6 +58,7 @@ pipeline {
         stage('Copy package') {
             steps {
                 sh '''
+                   mkdir -p /opt/gobuild/${BUILD_ID}
                    cp ${APP_NAME} /opt/gobuild/${BUILD_ID}/${APP_NAME}
                 '''
             }
