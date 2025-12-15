@@ -1,2 +1,4 @@
-module main
-go 1.23.4
+module simple-go-app
+
+go 1.22
+

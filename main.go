@@ -1,8 +1,13 @@
 package main
+
 import "fmt"
-        "main/test"
 
 func main() {
-    result := test.Add(2,3)
-    fmt.Println("The sum of 2 and 3 is %d\n, result")
+	fmt.Println("Starting Go application")
+
+	SayHello()
+	result := Add(10, 20)
+
+	fmt.Println("Addition result:", result)
 }
+
