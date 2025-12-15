@@ -44,8 +44,8 @@ pipeline {
                     go test ./... -v -coverprofile=coverage.out > test_output.txt
                     EXIT_CODE=$?
 
-                    go install github.com/jstemmer/go-junit-report@latest
-                    $(go env GOPATH)/bin/go-junit-report < test_output.txt > report.xml
+#                    go install github.com/jstemmer/go-junit-report@latest
+#                    $(go env GOPATH)/bin/go-junit-report < test_output.txt > report.xml
 
                     go tool cover -func=coverage.out
                     go tool cover -html=coverage.out -o coverage.html || true
@@ -71,28 +71,17 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            junit 'report.xml'
+   post {
+    always {
+        cleanWs()
+    }
 
-            publishHTML(target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: '.',
-                reportFiles: 'coverage.html',
-                reportName: 'Go Test Coverage'
-            ])
+    success {
+        echo 'Go build completed successfully'
+    }
 
-            cleanws()
-        }
-
-        success {
-            echo 'Go build completed successfully'
-        }
-
-        failure {
-            echo 'Go build failed'
-        }
+    failure {
+        echo 'Go build failed'
     }
 }
+
